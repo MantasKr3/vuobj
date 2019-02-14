@@ -1,0 +1,2 @@
+# vuobj
+Užduotis: duomenų apdorojimas
