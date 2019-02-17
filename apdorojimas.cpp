@@ -1,22 +1,24 @@
-#include <iostream> 
-#include <string> 
-#include <cassert> 
-#include <iomanip> 
-#include <vector> 
 #include "my_f.h"
 int n; // namu darbu skaicius
 int m=0; //studentu skaicius
 string klaida = "Iveskite ne skaicius";
 string klaida2 = "Iveskite  (neneigiama)skaiciu";
 string klaida3 = "Iveskite  skaiciu tarp 1 ir 10";
-string klaida4 = "Iveskite neneigiama ir nelygu 0 skaiciu";
+string klaida4 = "Iveskite reikiama skaiciu";
 
 
-void print(vector < string > vardas, vector < string > pavarde,vector < double > galutinis) {
+void print(vector < string > vardas, vector < string > pavarde,vector < double > galutinis,vector <int> zmogus,vector <double> median) {
   for (int i = 0; i < m; i++) {
     cout << vardas[i]<<"  ";//setw neveikia?
     cout << pavarde[i] <<"  ";//setw neveikia?
-    cout <<galutinis[i]<<endl;
+    if(zmogus[i]==1){
+          cout <<std::setprecision(3)<<galutinis[i];
+          cout << "  "<<"-"<<endl;
+    }
+    else{
+          cout << "  "<<"-";
+          cout <<std::setprecision(3)<<median[i]<<endl;;
+    }
   }
 }
 
@@ -25,53 +27,35 @@ bool is_number(const std::string & s) {
   while (it != s.end() && std::isdigit( * it)) ++it;
   return !s.empty() && it == s.end();
 }
-void count(vector < int > &nd, vector < int > &egz, vector < double > &galutinis) {
-  double check = 0, stdsk = 0, sum = 0, intr = 0;
-  for (int i = 0; i < nd.size();i++) {
-    check++;
+void count(vector < int > &nd, vector < int > &egz, vector < double > &galutinis,vector <int> &zmogus) {
+  double check = 0, sum = 0, intr = 0;
+  for (int i = 0; i <n;i++) {
     sum += nd[i];
-    if (check == n) {
-      check = 0;
-      intr = (sum / n) * 0.4 + egz[stdsk] * 0.6;
-      sum = 0;
-      stdsk++;
+      intr = (sum / n) * 0.4 + egz[m] * 0.6;
       galutinis.push_back(intr);
-      intr = 0;
-    }
-
   }
 
 }
-void input(vector <string> &vardas, vector <string> &pavarde,vector < int > &nd,vector < int > &egz,vector < double > &galutinis)
+void count2(vector < int > &nd, vector < int > &egz,vector <int> &zmogus,  vector <double> &median)
 {
+std::sort(nd.begin(),nd.end());
+if ( n % 2 == 0)
+    {
+      median.push_back((nd[n / 2 - 1] + nd[n / 2]) / 2);
+    }
+    else 
+    {
+      return median.push_back(nd[n / 2]);
+    }
+  }
+  
 
-  cout << "Iveskite studentu atliktu namu darbu skaiciu - n" << endl;
-  checkpoint5:
-  string ndsk;
-  cin >> ndsk;
- try {
-        if (is_number(ndsk) == false)
-          throw klaida2;
-
-      } catch (string klaida2) {
-        cout << klaida2 << endl;
-        goto checkpoint5;
-      }
-        int testsk=std::stoi(ndsk);
-
-       try {
-        if (testsk<=0)
-          throw klaida4;
-
-      } catch (string klaida4) {
-        cout << klaida2 << endl;
-        goto checkpoint5;
-      }
-      n=std::stoi(ndsk);
-  cout << endl;
+void input(vector <string> &vardas, vector <string> &pavarde,vector < int > &nd,vector < int > &egz,vector < double > &galutinis, vector <int> &zmogus,vector <double> &median )
+{
   string salyga = "y";
   string v;
   string p;
+  int pasirinkimas;
   //////////////////////////////////////////////////////////////////////////////////////////////
   while (salyga == "y") {
     cout << "Ar norite ivesti studento duomenis? Jei norite: irasykite - y, jei ne irasykite betkuria raide-zodi" << endl;
@@ -104,72 +88,79 @@ void input(vector <string> &vardas, vector <string> &pavarde,vector < int > &nd,
       }
       vardas.push_back(v);
       pavarde.push_back(p);
+        cout << "Iveskite studento atliktu namu darbu skaiciu - n" << endl;
+  checkpoint5:
+  string ndsk;
+  cin >> ndsk;
+ try {
+        if (is_number(ndsk) == false)
+          throw klaida2;
+
+      } catch (string klaida2) {
+        cout << klaida2 << endl;
+        goto checkpoint5;
+      }
+        int testsk=std::stoi(ndsk);
+
+       try {
+        if (testsk<=0)
+          throw klaida4;
+
+      } catch (string klaida4) {
+        cout << klaida2 << endl;
+        goto checkpoint5;
+      }
+      n=std::stoi(ndsk);
+  cout << endl;
+  string pas;
+  checkpoint6: //pridetas check point jei varde ar pavardeje yra skaiciu
+        cout << endl;
+      cout << "Iveskite jei norite vid- 1, jei medianos- 2" << endl;
+      cin >> pas;
+//        try {
+//         if (is_number(pas) == true)
+//           throw klaida2;
+
+//       } catch (string klaida2) {
+//         cout << klaida2 << endl;
+//         goto checkpoint6;
+//       }
+pasirinkimas=std::stoi(pas);
+
+//        try {
+//         if ((pasirinkimas!=1)||(pasirinkimas!=2))
+//           throw klaida4;
+
+//       } 
+//       catch (string klaida4) {
+//         cout << klaida4 << endl;
+//         goto checkpoint6;
+//       }
+      zmogus.push_back(pasirinkimas);
       m++;
    //////////////////////////////////////////////////////////////////////////////////////////////
-       cout << "Iveskite " << n << " namu darbu rezultatus" << endl;
-      string skaicius;
+ 
       int test;
       int sk;
       for (int i = 0; i < n; i++) {
-        checkpoint2: cout << " >> ";
-        cin >> skaicius;
-        try {
-          if (is_number(skaicius) == false){
-                throw klaida2;
-          }
-        } catch (string klaida2) {
-          cout << klaida2 << endl;
-          goto checkpoint2;
-        }
-              test=std::stoi(skaicius);
-
-        try{
-             if((test>10)||(test<=0)){
-                throw klaida3;
-            }
-        }
-        catch(string klaida3) {
-           cout << klaida3 << endl;
-          goto checkpoint2;
-        }
-        sk = std::stoi(skaicius);
-        nd.push_back(sk);
+    srand(time(NULL));
+    sk=std::round(1 + ( double ) rand ()/ RAND_MAX * (10 - 1));
+    nd.push_back(sk);
       }
     //////////////////////////////////////////////////////////////////////////////////////////////
-      string egzas;
-      int test2;
-      int sk2;   
-      cout << "Iveskite " << v << " " << p << " egzamino rezultata " << endl;
-       checkpoint3: 
-      cin >> egzas;
-      try {
-        if (is_number(egzas) == false)
-          throw klaida2;
-        
-      }
-      catch (string klaida2) {
-        cout << klaida2 << endl;
-        goto checkpoint3;
-      }
-            test2=std::stoi(egzas);
-
-      try {
-         if((test2>10)||(test2<=0)){
-                throw klaida3;
-            }
-      }
-       catch (string klaida3) {
-        cout << klaida3<< endl;
-        goto checkpoint3;
-      }
-      sk2=std::stoi(egzas);
+    int sk2;
+    srand(time(NULL));
+    sk2=std::round(1 + ( double ) rand ()/ RAND_MAX * (10 - 1));
       egz.push_back(sk2);
+    count(nd,egz,galutinis,zmogus);
+    count2(nd,egz,zmogus,median);
+    nd.clear();
+    egz.clear();
 
      }
    //////////////////////////////////////////////////////////////////////////////////////////////
     else {
-    count(nd,egz,galutinis);
-    print(vardas, pavarde,galutinis);
+    print(vardas, pavarde,galutinis,zmogus,median);
     break;
     }
 }
@@ -179,10 +170,12 @@ void input(vector <string> &vardas, vector <string> &pavarde,vector < int > &nd,
 
 int main(int argc, char * argv[]) {
   vector < double > galutinis;
+  vector <double> median;
   vector < int > nd;
   vector < int > egz;
+  vector <int> zmogus;
   vector <string> vardas;
   vector <string> pavarde;
-  input(vardas,pavarde,nd,egz,galutinis);
+  input(vardas,pavarde,nd,egz,galutinis,zmogus,median);
   return 0;
 }
