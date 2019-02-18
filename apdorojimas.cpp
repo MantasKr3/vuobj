@@ -16,7 +16,42 @@ struct stud {
   double median;
 
 };
+void swap(struct stud* i, struct stud* j)
+{
+    stud t;
+     t = *i;
+    *i = *j;
+    *j = t;
 
+}
+void sort(vector <stud> &studentai)
+{
+		int i=0;
+		bool swapped=true;
+		while(swapped)
+		{    
+                        i++;
+			swapped = false;
+			for (int j = 0; j < m-i; j++) 
+			{
+				if(studentai[j].vardas > studentai[j+1].vardas)
+				{
+					swap(&studentai[j],&studentai[j+1]);
+					swapped = true;
+				}
+				if(studentai[j].vardas == studentai[j+1].vardas)
+				{
+					if(studentai[j].pavarde > studentai[j+1].pavarde)
+					{
+						swap(&studentai[j],&studentai[j+1]);
+						swapped = true;
+					}
+				}
+
+			}
+
+		}
+}
 void print(vector <stud> &studentai) {
   for (int i = 0; i < m; i++) {
     cout << studentai[i].vardas<<std::setw(5);//setw neveikia?
@@ -26,7 +61,7 @@ void print(vector <stud> &studentai) {
           cout <<std::setw(5)<<"-"<<endl;
     }
     else{
-          cout <<std::setw(5)<<"-";
+          cout <<"-" <<std::setw(5);
           cout <<std::setprecision(3)<<studentai[i].median<<endl;;
     }
   }
@@ -159,6 +194,7 @@ if ( studentai[m].kiekis % 2 == 0)
      }
    //////////////////////////////////////////////////////////////////////////////////////////////
     else {
+    sort(studentai);
     print(studentai);
     break;
     }
