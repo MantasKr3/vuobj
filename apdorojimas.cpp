@@ -1,6 +1,6 @@
 #include "my_f.h"
-int n; // namu darbu skaicius
 int m=0; //studentu skaicius
+int const ndskaicius=5;
 string klaida = "Iveskite ne skaicius";
 string klaida2 = "Iveskite  (neneigiama)skaiciu";
 string klaida3 = "Iveskite  skaiciu tarp 1 ir 10";
@@ -93,6 +93,32 @@ if ( studentai[m].kiekis % 2 == 0)
     }
   }
   
+<<<<<<< HEAD
+
+
+
+void input(vector <stud> &studentai,string filename){
+ifstream in (filename);
+in.ignore(256,'\n');
+int p;
+while(!in.eof()){
+studentai.push_back(stud());
+in>>studentai[m].vardas>>std::ws>>studentai[m].pavarde;
+for(int i=0;i<ndskaicius;i++){
+in>>p;
+studentai[m].nd.push_back(p);
+}
+in>>studentai[m].egz;
+in.ignore(0,'\n');
+m++;
+}
+cout<<m<<endl;
+cout<<"******************************"<<endl;
+cout<<studentai[3].vardas<<studentai[3].pavarde<<studentai[3].nd[1]<<studentai[3].egz;
+}
+
+=======
+>>>>>>> f0b66314bad6b4095915f217b73c51d9a1757266
   void inputas(vector <stud> &studentai)
 { 
   int const N=5;
@@ -131,7 +157,13 @@ if ( studentai[m].kiekis % 2 == 0)
         goto checkpoint4;
       }
        studentai[m].pavarde=p;
-  cout << "Iveskite studento atliktu namu darbu skaiciu" << endl;
+       string sal;
+       cout<<"Ar norite ivesti atliktu namu darbu skaiciu,ar norit naudoti default reiksme? y - ivesti"<<endl;
+       cin>>sal;
+       cout<<endl;
+       if(sal=="y")
+       {
+         cout << "Iveskite studento atliktu namu darbu skaiciu" << endl;
   checkpoint5:
   string ndsk;
   cin >> ndsk;
@@ -154,6 +186,12 @@ if ( studentai[m].kiekis % 2 == 0)
         goto checkpoint5;
       }
       studentai[m].kiekis=testsk;
+
+       }
+       else{
+         studentai[m].kiekis=ndskaicius;
+       }
+ 
   cout << endl;
     int pasirinkimas=0;
   checkpoint6: //pridetas check point jei varde ar pavardeje yra skaiciu
@@ -203,6 +241,19 @@ if ( studentai[m].kiekis % 2 == 0)
 
 int main(int argc, char * argv[]) {
   vector <stud> studentai;
+<<<<<<< HEAD
+  string salyga;
+  cout<<"Ar norite ivesti duomenis is failo? Jei norite: irasykite - y, jei ne irasykite betkuria raide-zodi"<<endl;
+  cin>>salyga;
+  if(salyga=="y"){
+  string filename;
+  cout<<"Iveskite tekstionio failo pavadinima(.txt)"<<endl;
+  cin>>filename;
+  input(studentai,filename);
+  }
+  cout<<endl;
+=======
+>>>>>>> f0b66314bad6b4095915f217b73c51d9a1757266
 inputas(studentai);
   
   return 0;
