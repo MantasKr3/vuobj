@@ -11,7 +11,7 @@ struct stud {
   int selection;
   vector <int> nd;
   int kiekis;
-  double egz;
+  int egz;
   double vid;
   double median;
 
@@ -57,12 +57,12 @@ void print(vector <stud> &studentai) {
     cout << studentai[i].vardas<<std::setw(5);//setw neveikia?
     cout << studentai[i].pavarde <<std::setw(5);//setw neveikia?
     if(studentai[i].selection==1){
-          cout <<std::setprecision(3)<<studentai[i].vid;
+          cout <<std::fixed<<std::setprecision(2)<<studentai[i].vid;
           cout <<std::setw(5)<<"-"<<endl;
     }
     else{
           cout <<"-" <<std::setw(5);
-          cout <<std::setprecision(3)<<studentai[i].median<<endl;;
+          cout <<std::fixed<<std::setprecision(2)<<studentai[i].median<<endl;;
     }
   }
 }
@@ -73,12 +73,11 @@ bool is_number(const std::string & s) {
   return !s.empty() && it == s.end();
 }
 void count(vector <stud> &studentai) {
-  double sum = 0, intr = 0;
+  double sum = 0, k=0,vid=0;;
   for (int i = 0; i <studentai[m].kiekis;i++) {
     sum += studentai[m].nd[i];
-      intr = (sum / studentai[m].kiekis) * 0.4 + studentai[m].egz * 0.6;
-      studentai[m].vid=intr;
   }
+    studentai[m].vid=(sum / studentai[m].kiekis)*0.4 + studentai[m].egz*0.6;
 
 }
 void count2(vector <stud> &studentai)
@@ -94,12 +93,9 @@ if ( studentai[m].kiekis % 2 == 0)
     }
   }
   
-
-
-
-
   void inputas(vector <stud> &studentai)
-{
+{ 
+  int const N=5;
   string salyga = "y";
   string v,p;
   //////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,7 +180,7 @@ if ( studentai[m].kiekis % 2 == 0)
     
       }
     //////////////////////////////////////////////////////////////////////////////////////////////
-    int sk2;
+  int sk2;
     srand(time(NULL));
     sk2=std::round(1 + ( double ) rand ()/ RAND_MAX * (10 - 1));
       studentai[m].egz=sk2;
@@ -195,7 +191,7 @@ if ( studentai[m].kiekis % 2 == 0)
    //////////////////////////////////////////////////////////////////////////////////////////////
     else {
     sort(studentai);
-    print(studentai);
+    //print(studentai);
     break;
     }
 }
@@ -207,7 +203,7 @@ if ( studentai[m].kiekis % 2 == 0)
 
 int main(int argc, char * argv[]) {
   vector <stud> studentai;
-  inputas(studentai);
+inputas(studentai);
   
   return 0;
 }
