@@ -1,7 +1,9 @@
 #include "my_f.h"
-#include "f_inputs.h"
+
 int m=0; //studentu skaicius
+int mokiniuskaicius;
 int const ndskaicius=5;
+string fn;
 string klaida = "Iveskite ne skaicius";
 string klaida2 = "Iveskite  (neneigiama)skaiciu";
 string klaida3 = "Iveskite  skaiciu tarp 1 ir 10";
@@ -17,6 +19,34 @@ struct stud {
   double median;
 
 };
+void generate()
+{ 
+cout<<"iveskite failo pavadinima(.txt)"<<endl;
+cin>>fn;
+ofstream off (fn);
+off<<"ivedimas"<<endl;
+cout<<"Iveskite kiek norite sugeneruoti random studentu"<<endl;
+int mokiniusk;
+cin>>mokiniusk;
+cout<<endl;
+string vardas="vardas";
+string pavarde="pavarde";
+int sk[ndskaicius];
+int egz;
+ srand(time(NULL));
+ for(int i=0;i<mokiniusk;i++){
+   off<<vardas<<i<<"  "<<pavarde<<i<<"  ";
+   for(int j=0;j<ndskaicius;j++)
+   {
+   
+    sk[j]=std::round(1 + ( double ) rand ()/ RAND_MAX * (10 - 1));
+    off<<sk[j]<<"  ";
+   }
+    egz=std::round(1 + ( double ) rand ()/ RAND_MAX * (10 - 1));
+    off<<egz<<endl;
+ }
+ off.close();
+ }
 void swap(struct stud* i, struct stud* j)
 {
     stud t;
@@ -56,10 +86,10 @@ void sort(vector <stud> &studentai)
 void print(vector <stud> &studentai) {
   ofstream out ("rezultatai.txt");
   for (int i = 0; i < m; i++) {
-    out << studentai[i].vardas<<std::setw(5);//setw neveikia?
-    out << studentai[i].pavarde <<std::setw(5);//setw neveikia?
+    out << studentai[i].vardas<<"   ";//setw neveikia?
+    out << studentai[i].pavarde <<"   ";//setw neveikia?
   
-          out <<std::fixed<<std::setprecision(2)<<studentai[i].vid<<"      ";
+          out <<std::fixed<<std::setprecision(2)<<studentai[i].vid<<"   ";
       
           out <<std::fixed<<std::setprecision(2)<<studentai[i].median<<endl;
     }
@@ -95,11 +125,11 @@ if ( studentai[m].kiekis % 2 == 0)
 
 
 
-void input(vector <stud> &studentai,string filename){
-ifstream in (filename);
+void input(vector <stud> &studentai){
+ifstream in (fn);
 in.ignore(256,'\n');
 int p;
-char c;
+
 while(!in.eof()){
 studentai.push_back(stud());
 in>>studentai[m].vardas>>std::ws>>studentai[m].pavarde;
@@ -242,14 +272,12 @@ m=m-2;
 
 int main(int argc, char * argv[]) {
   vector <stud> studentai;
+  generate();
   string salyga;
   cout<<"Ar norite ivesti duomenis is failo? Jei norite: irasykite - y, jei ne irasykite betkuria raide-zodi"<<endl;
   cin>>salyga;
   if(salyga=="y"){
-  string filename;
-  cout<<"Iveskite tekstionio failo pavadinima(.txt)"<<endl;
-  cin>>filename;
-  input(studentai,filename);
+  input(studentai);
   }
   cout<<endl;
 
