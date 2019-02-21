@@ -3,4 +3,5 @@ vuobj/
 *.layout
 *.exe
 *.o
+*.vscode/
 

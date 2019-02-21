@@ -1,4 +1,5 @@
 #include "my_f.h"
+#include "f_inputs.h"
 int m=0; //studentu skaicius
 int const ndskaicius=5;
 string klaida = "Iveskite ne skaicius";
@@ -53,19 +54,17 @@ void sort(vector <stud> &studentai)
 		}
 }
 void print(vector <stud> &studentai) {
+  ofstream out ("rezultatai.txt");
   for (int i = 0; i < m; i++) {
-    cout << studentai[i].vardas<<std::setw(5);//setw neveikia?
-    cout << studentai[i].pavarde <<std::setw(5);//setw neveikia?
-    if(studentai[i].selection==1){
-          cout <<std::fixed<<std::setprecision(2)<<studentai[i].vid;
-          cout <<std::setw(5)<<"-"<<endl;
+    out << studentai[i].vardas<<std::setw(5);//setw neveikia?
+    out << studentai[i].pavarde <<std::setw(5);//setw neveikia?
+  
+          out <<std::fixed<<std::setprecision(2)<<studentai[i].vid<<"      ";
+      
+          out <<std::fixed<<std::setprecision(2)<<studentai[i].median<<endl;
     }
-    else{
-          cout <<"-" <<std::setw(5);
-          cout <<std::fixed<<std::setprecision(2)<<studentai[i].median<<endl;;
-    }
+    out.close();
   }
-}
 
 bool is_number(const std::string & s) {
   std::string::const_iterator it = s.begin();
@@ -93,7 +92,6 @@ if ( studentai[m].kiekis % 2 == 0)
     }
   }
   
-<<<<<<< HEAD
 
 
 
@@ -101,6 +99,7 @@ void input(vector <stud> &studentai,string filename){
 ifstream in (filename);
 in.ignore(256,'\n');
 int p;
+char c;
 while(!in.eof()){
 studentai.push_back(stud());
 in>>studentai[m].vardas>>std::ws>>studentai[m].pavarde;
@@ -109,16 +108,18 @@ in>>p;
 studentai[m].nd.push_back(p);
 }
 in>>studentai[m].egz;
+studentai[m].kiekis=ndskaicius;
 in.ignore(0,'\n');
+count(studentai);
+count2(studentai);
 m++;
 }
-cout<<m<<endl;
-cout<<"******************************"<<endl;
-cout<<studentai[3].vardas<<studentai[3].pavarde<<studentai[3].nd[1]<<studentai[3].egz;
+cout<<"***********************************"<<endl;
+m=m-2;
+
 }
 
-=======
->>>>>>> f0b66314bad6b4095915f217b73c51d9a1757266
+
   void inputas(vector <stud> &studentai)
 { 
   int const N=5;
@@ -229,7 +230,7 @@ cout<<studentai[3].vardas<<studentai[3].pavarde<<studentai[3].nd[1]<<studentai[3
    //////////////////////////////////////////////////////////////////////////////////////////////
     else {
     sort(studentai);
-    //print(studentai);
+    print(studentai);
     break;
     }
 }
@@ -241,7 +242,6 @@ cout<<studentai[3].vardas<<studentai[3].pavarde<<studentai[3].nd[1]<<studentai[3
 
 int main(int argc, char * argv[]) {
   vector <stud> studentai;
-<<<<<<< HEAD
   string salyga;
   cout<<"Ar norite ivesti duomenis is failo? Jei norite: irasykite - y, jei ne irasykite betkuria raide-zodi"<<endl;
   cin>>salyga;
@@ -252,8 +252,8 @@ int main(int argc, char * argv[]) {
   input(studentai,filename);
   }
   cout<<endl;
-=======
->>>>>>> f0b66314bad6b4095915f217b73c51d9a1757266
+
+
 inputas(studentai);
   
   return 0;
