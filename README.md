@@ -1,9 +1,39 @@
-# Objektinis
-# Užduotis: Duomenų apdorojimas
+# Manto Kraujelio VU Objektinio programavimo:
+## Užduotis: Duomenų apdorojimas
 
-## [Version 0.2.1](https://github.com/MantasKr3/vuobj/releases/tag/V.0.2.1)
+**Dabartinė Version [0.4]. Programa seka ir apskaičiuoja moksleivio sugeneruotų pažymių vidurkį ir medianą:**<br/>
+- Pradėjus programa sukūriami 5 failai su šabloniniais vardais: `Vardas1 Pavardė1, Vardas2 Pavardė2 ir t.t.` `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`   <br/>
+- Programa suskaičiuoja vidurkį ir medianą, ir išveda rezultatus į surūšiuotūs pagal galutinį (vidurkį) failus, pavadintus `neneaudeliai.txt` , kur išvedami visi su galutiniu pažymiu *<5* , likę išvedami į failą `geriukai.txt`
+
+## Programos naudojimas naudojant `g++` kompiliatorių
+
+- `git clone https://github.com/MantasKr3/vuobj`
+- `cd vuobj`
+- `g++  apdorojimas.cpp functions.cpp -o open`
+- `./open`
+
+## [Version 0.4](https://github.com/MantasKr3/vuobj/releases/tag/V.0.3%26V.0.4)
+- Added generating of 5 diffrent input (there's is known issue) files :
+- `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`
+- Added output of sorted students by galutinis (vidurkis) to files: `nenaudeliai.txt` and `geriukai.txt`
+- Adedd ```std::chrono::high_resolution_clock::now() ``` to messure time of program execution
+
+## [Version 0.3](https://github.com/MantasKr3/vuobj/releases/tag/V.0.3%26V.0.4)
+- Fixed Output
+- Refactored program to: 
+- `functions.cpp`
+- `functions.h`
+- `apdorojimas.cpp`
+- Used exception handling
+```c++
+try {} 
+catch (std::exception& e) {}
+ ```
+
+## [Version 0.2.0 - Version 0.2.1](https://github.com/MantasKr3/vuobj/releases/tag/V.0.2.1)
 - Added random student generation
 - Added input from text file
+- Fixed counting
 
 ## [Version 0.1.1](https://github.com/MantasKr3/vuobj/releases/tag/V.0.1.1)
 - Fixed count function
@@ -11,4 +41,6 @@
 - Added structs
 
 ## [Version 0.1](https://github.com/MantasKr3/vuobj/releases/tag/V.0.1)
-- Pradinis įkėlimas
+- Initial upload
+
+
