@@ -17,6 +17,7 @@
 - `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`
 - Added output of sorted students by galutinis (vidurkis) to files: `nenaudeliai.txt` and `geriukai.txt`
 - Adedd ```std::chrono::high_resolution_clock::now() ``` to messure time of program execution
+- Disabled some functions of previous versions requirements
 
 ## [Version 0.3](https://github.com/MantasKr3/vuobj/releases/tag/V.0.3%26V.0.4)
 - Fixed Output
