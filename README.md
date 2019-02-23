@@ -1,7 +1,7 @@
 # Manto Kraujelio VU Objektinio programavimo:
 ## Užduotis: Duomenų apdorojimas
 
-**Dabartinė Version [0.4]. Programa seka ir apskaičiuoja moksleivio sugeneruotų pažymių vidurkį ir medianą:**<br/>
+**Dabartinės  Version [0.4] panaudojimas. Programa seka ir apskaičiuoja moksleivio sugeneruotų pažymių vidurkį ir medianą:**<br/>
 - Pradėjus programa sukūriami 5 failai su šabloniniais vardais: `Vardas1 Pavardė1, Vardas2 Pavardė2 ir t.t.` `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`   <br/>
 - Programa suskaičiuoja vidurkį ir medianą, ir išveda rezultatus į surūšiuotūs pagal galutinį (vidurkį) failus, pavadintus `neneaudeliai.txt` , kur išvedami visi su galutiniu pažymiu *<5* , likę išvedami į failą `geriukai.txt`
 
