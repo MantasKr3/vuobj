@@ -12,6 +12,8 @@
 - `g++  apdorojimas.cpp functions.cpp -o open`
 - `./open`
 
+## *Detalesni aprašymai bus pridėti prie kiekvieno realeaso*
+
 ## [Version 0.4](https://github.com/MantasKr3/vuobj/releases/tag/V.0.3%26V.0.4)
 - Added generating of 5 diffrent input (there's is known issue) files :
 - `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`
