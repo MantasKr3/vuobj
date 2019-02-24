@@ -18,7 +18,7 @@
 - Added generating of 5 diffrent input (there's is known issue of same name students results being the same) files :
 - `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`
 - Added output of sorted students by galutinis (vidurkis) to files: `nenaudeliai.txt` and `geriukai.txt`
-- Adedd ```std::chrono::high_resolution_clock::now() ``` to messure time of program execution
+- Added ```std::chrono::high_resolution_clock::now() ``` to messure time of program execution
 - Disabled some functions of previous versions requirements
 - Program ouputs times of execution on display :
 - ```Generavimo ir skaičiavimo įvykdimas su 10 studentų užtruko: 0.000614084 s```
