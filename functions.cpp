@@ -19,12 +19,12 @@ using std::ifstream;
 using std::ofstream;
 
 int m = 0; //studentu skaicius
-int
-const ndskaicius = 5; // default nd darbu skaiciaus 
+int const ndskaicius = 5; // default nd darbu skaiciaus 
 void generate(int change) {
   m = 0;
   auto name = std::to_string(change);
-  ofstream off("kursiokai" + name + ".txt");
+  string fn="kursiokai" + name + ".txt";
+  ofstream off(fn);
   off << "ivedimas" << endl;
   string vardas = "vardas";
   string pavarde = "pavarde";
@@ -42,6 +42,7 @@ void generate(int change) {
     off << egz << endl;
   }
   off.close();
+  
 }
 void swap(struct stud * i, struct stud * j) {
   stud t;
@@ -57,12 +58,12 @@ void sort(vector < stud > & studentai) {
     i++;
     swapped = false;
     for (int j = 0; j < m - i; j++) {
-      if (studentai[j].vardas > studentai[j + 1].vardas) {
+      if (studentai[j].vid > studentai[j + 1].vid) {
         swap( & studentai[j], & studentai[j + 1]);
         swapped = true;
       }
-      if (studentai[j].vardas == studentai[j + 1].vardas) {
-        if (studentai[j].pavarde > studentai[j + 1].pavarde) {
+      if (studentai[j].vid == studentai[j + 1].vid) {
+        if (studentai[j].median > studentai[j + 1].median) {
           swap( & studentai[j], & studentai[j + 1]);
           swapped = true;
         }
