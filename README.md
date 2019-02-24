@@ -21,11 +21,13 @@
 - Added ```std::chrono::high_resolution_clock::now() ``` to messure time of program execution
 - Disabled some functions of previous versions requirements
 - Program ouputs times of execution on display :
-- ```Generavimo ir skaičiavimo įvykdimas su 10 studentų užtruko: 0.000614084 s```
-- ```Generavimo ir skaičiavimo įvykdimas su 100 studentų užtruko: 0.00209874 s```
-- ```Generavimo ir skaičiavimo įvykdimas su 1000 studentų užtruko: 0.0114821 s```
-- ```Generavimo ir skaičiavimo įvykdimas su 10000 studentų užtruko: 0.0859467 s```
-- ```Generavimo ir skaičiavimo įvykdimas su 100000 studentų užtruko: 0.831313 s```
+```bash
+Generavimo ir skaičiavimo įvykdimas su 10 studentų užtruko: 0.000614084 s
+Generavimo ir skaičiavimo įvykdimas su 100 studentų užtruko: 0.00209874 s
+Generavimo ir skaičiavimo įvykdimas su 1000 studentų užtruko: 0.0114821 s
+Generavimo ir skaičiavimo įvykdimas su 10000 studentų užtruko: 0.0859467 s
+Generavimo ir skaičiavimo įvykdimas su 100000 studentų užtruko: 0.831313 s
+```
 
 
 ## [Version 0.3](https://github.com/MantasKr3/vuobj/releases/tag/V.0.3%26V.0.4)
