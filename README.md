@@ -9,7 +9,7 @@
 
 - `git clone https://github.com/MantasKr3/vuobj`
 - `cd vuobj`
-- `g++  apdorojimas.cpp functions.cpp -o open`
+- `g++  functions.cpp apdorojimas.cpp  -o open`
 - `./open`
 
 ## *Detalesni aprašymai bus pridėti prie kiekvieno realeaso*
