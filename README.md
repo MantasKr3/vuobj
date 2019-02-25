@@ -1,9 +1,9 @@
 # Manto Kraujelio VU Objektinio programavimo:
 ## Užduotis: Duomenų apdorojimas
 
-**Dabartinės  Version [0.4.2] panaudojimas. Programa seka ir apskaičiuoja moksleivio sugeneruotų pažymių vidurkį ir medianą:**<br/>
+**Dabartinės  Version [0.4.3] panaudojimas. Programa seka ir apskaičiuoja moksleivio sugeneruotų pažymių vidurkį ir medianą:**<br/>
 - Pradėjus programa sukūriami 5 failai su šabloniniais vardais: `Vardas1 Pavardė1, Vardas2 Pavardė2 ir t.t.` `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`   <br/>
-- Programa suskaičiuoja vidurkį ir medianą, ir išveda rezultatus į surūšiuotūs pagal galutinį (vidurkį) failus, pavadintus `neneaudeliai.txt` , kur išvedami visi su galutiniu pažymiu *<5* , likę išvedami į failą `geriukai.txt`
+- Programa suskaičiuoja vidurkį ir medianą, ir išveda rezultatus į surūšiuotūs pagal galutinį (vidurkį) failus ir pažymius(medianą), pavadintus `neneaudeliai.txt` , kur išvedami visi su galutiniu pažymiu *<5* , likę išvedami į failą `geriukai.txt`
 - Programa į ekraną išveda atlikimo laikus su skirtingais duomenų failais
 ```bash
 Generavimo ir skaičiavimo įvykdimas su 10 studentų užtruko: 0.000614084 s
@@ -22,7 +22,10 @@ Generavimo ir skaičiavimo įvykdimas su 100000 studentų užtruko: 0.831313 s
 - `./open`
 
 ## *Detalesni aprašymai bus pridėti prie kiekvieno realeaso*
+## [Version 0.4.3](https://github.com/MantasKr3/vuobj/releases/tag/V.0.4.3)
+- Fixed sorting for final results
 
+- Deleted unused libs, refactored to another ```.h``` file - ```apdorojimas.h```
 ## [Version 0.4.2](https://github.com/MantasKr3/vuobj/releases/tag/V.0.4.2)
 - Added timer to measure execution time of program
 ```shell
