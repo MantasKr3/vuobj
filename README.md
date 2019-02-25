@@ -25,7 +25,6 @@ Generavimo ir skaičiavimo įvykdimas su 100000 studentų užtruko: 0.831313 s
 ## [Version 0.4.3](https://github.com/MantasKr3/vuobj/releases/tag/V.0.4.3)
 - Fixed sorting for final results
 
-- Deleted unused libs, refactored to another ```.h``` file - ```apdorojimas.h```
 ## [Version 0.4.2](https://github.com/MantasKr3/vuobj/releases/tag/V.0.4.2)
 - Added timer to measure execution time of program
 ```shell
