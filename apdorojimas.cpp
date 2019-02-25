@@ -2,20 +2,25 @@
 #include "apdorojimas.h"
 
 int main() {
-    auto startas = std::chrono::high_resolution_clock::now(); 
+  auto startas = std::chrono::high_resolution_clock::now(); 
   vector <stud> studentai;
+  vector <stud> geriukai;
+  vector <stud> nenaudeliai;
   cout<<endl;
   int sk=10; // Pradinė reikšmė
+  int sksum=0;
   for(int i=0;i<5;i++){
   auto start = std::chrono::high_resolution_clock::now(); 
   generate(sk);
   input(studentai,sk);
-  print(studentai,sk);
   auto end = std::chrono::high_resolution_clock::now();
 std::chrono::duration<double> diff = end-start; 
 std::cout << "Generavimo ir skaičiavimo įvykdimas su "<<sk<<" studentų užtruko: "<< diff.count() << " s\n";
+  sksum=sksum+sk;
   sk=sk*10;
   }
+  sortinti(studentai,geriukai,nenaudeliai);
+  print(studentai,geriukai,nenaudeliai,sk);
     cout<<endl;
   //sort(studentai);
   //Išjungta galimybė įvesti duomenis iš failo,kad nesimaišytų generavimui

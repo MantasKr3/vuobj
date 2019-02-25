@@ -29,7 +29,8 @@ struct stud {
 };
 
 void generate(int change);
-void print(vector <stud> &studentai,int change);
+void sortinti(vector < stud > & studentai,vector < stud > & geriukai ,vector < stud > & nenaudeliai);
+void print(vector < stud > & studentai,vector < stud > & geriukai ,vector < stud > & nenaudeliai,int change);
 void input(vector <stud> &studentai,int change);
 void swap(struct stud* i, struct stud* j);
 void sort(vector <stud> &studentai);

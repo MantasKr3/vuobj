@@ -1,9 +1,10 @@
 #include "functions.h"
 
 int m = 0; //studentu skaicius
+int x=0; //geriukiu skaicius
+int y=0; //nenaudeliu skaiucius
 int const ndskaicius = 5; // default nd darbu skaiciaus 
 void generate(int change) {
-  m = 0;
   auto name = std::to_string(change);
   string fn="kursiokai" + name + ".txt";
   ofstream off(fn);
@@ -33,19 +34,19 @@ void swap(struct stud * i, struct stud * j) {
   * j = t;
 
 }
-void sort(vector < stud > & studentai) {
+void sort(vector < stud > & studentai, int m) {
   int i = 0;
   bool swapped = true;
   while (swapped) {
     i++;
     swapped = false;
     for (int j = 0; j < m - i; j++) {
-      if (studentai[j].vid > studentai[j + 1].vid) {
+      if (studentai[j].vid < studentai[j + 1].vid) {
         swap( & studentai[j], & studentai[j + 1]);
         swapped = true;
       }
       if (studentai[j].vid == studentai[j + 1].vid) {
-        if (studentai[j].median > studentai[j + 1].median) {
+        if (studentai[j].median < studentai[j + 1].median) {
           swap( & studentai[j], & studentai[j + 1]);
           swapped = true;
         }
@@ -55,30 +56,54 @@ void sort(vector < stud > & studentai) {
 
   }
 }
-void print(vector < stud > & studentai, int change) {
-  auto name = std::to_string(change);
-  ofstream Aout("geriukai.txt", std::ios::app);
-  ofstream Bout("nenaudeliai.txt", std::ios::app);
-
+void sortinti(vector < stud > & studentai,vector < stud > & geriukai ,vector < stud > & nenaudeliai)
+{
   for (int i = 0; i < m; i++) { // Issue #4 Nesilygiuoja tekstas, neveikia std::setw
     if (studentai[i].vid >= 5) {
-      Aout << studentai[i].vardas <<std::left<<std::setw(ndskaicius-1); // setw neveikia?
-      Aout << studentai[i].pavarde <<std::left<<std::setw(ndskaicius-1); // setw neveikia?
+    geriukai.push_back(stud());
+    geriukai[x].vardas=studentai[i].vardas;
+    geriukai[x].pavarde=studentai[i].pavarde;
+    geriukai[x].vid=studentai[i].vid;
+    geriukai[x].median=studentai[i].median;
+    x++;
+    }
+    else{
+    nenaudeliai.push_back(stud());
+    nenaudeliai[y].vardas=studentai[i].vardas;
+    nenaudeliai[y].pavarde=studentai[i].pavarde;
+    nenaudeliai[y].vid=studentai[i].vid;
+    nenaudeliai[y].median=studentai[i].median;
+    y++;
+    }
 
-      Aout << std::fixed << std::setprecision(2) << studentai[i].vid <<std::setw(ndskaicius-1);
+}
+}
+void print(vector < stud > & studentai,vector < stud > & geriukai ,vector < stud > & nenaudeliai, int change) {
+  auto name = std::to_string(change);
+  ofstream Aout("geriukai.txt",std::ios::app);
+  ofstream Bout("nenaudeliai.txt",std::ios::app);
+  sort(geriukai,x);
+  sort(nenaudeliai,y);
+  for (int i = 0; i < x; i++) { // Issue #4 Nesilygiuoja tekstas, neveikia std::setw
 
-      Aout << std::fixed << std::setprecision(2) << studentai[i].median << endl;
-    } else {
-      Bout << studentai[i].vardas <<std::setw(ndskaicius-1); // setw neveikia?
-      Bout << studentai[i].pavarde <<std::setw(ndskaicius-1); // setw neveikia?
+      
+      Aout << geriukai[i].vardas <<std::left<<std::setw(ndskaicius-1)<<"  "; // setw neveikia?
+      Aout << geriukai[i].pavarde <<std::left<<std::setw(ndskaicius-1)<<"  "; // setw neveikia?
+      Aout << std::fixed << std::setprecision(2) << geriukai[i].vid <<std::setw(ndskaicius-1)<<"  ";
 
-      Bout << std::fixed << std::setprecision(2) << studentai[i].vid <<std::setw(ndskaicius-1);
+       Aout << std::fixed << std::setprecision(2) << geriukai[i].median << endl;
+    } 
+    for (int i = 0; i < y; i++) {
+      Bout << nenaudeliai[i].vardas <<std::setw(ndskaicius-1); // setw neveikia?
+      Bout << nenaudeliai[i].pavarde <<std::setw(ndskaicius-1); // setw neveikia?
 
-      Bout << std::fixed << std::setprecision(2) << studentai[i].median << endl;
+      Bout << std::fixed << std::setprecision(2) << nenaudeliai[i].vid <<std::setw(ndskaicius-1)<<"  ";
+
+      Bout << std::fixed << std::setprecision(2) << nenaudeliai[i].median << endl;
     }
 
   }
-}
+
 bool is_number(const std::string & s) {
   std::string::const_iterator it = s.begin();
   while (it != s.end() && std::isdigit( * it)) ++it;
@@ -113,7 +138,7 @@ void input(vector < stud > & studentai, int change) {
     count2(studentai);
     m++;
   }
-  m = m - 1; // Issue #1 - blogai ivedant duomenis is failo nuskaitomas eiluciu/teksto skaicius, pridedamos 1-2 neegzituojancios eilutes, klaida naudojant eof()?
+  m=m-1;// Issue #1 - blogai ivedant duomenis is failo nuskaitomas eiluciu/teksto skaicius, pridedamos 1-2 neegzituojancios eilutes, klaida naudojant eof()?
 }
 void inputas(vector < stud > & studentai) {
   string klaida = "Iveskite ne skaicius";
