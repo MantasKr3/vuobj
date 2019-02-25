@@ -1,22 +1,4 @@
 #include "functions.h"
-#include <iostream>
-#include <vector>
-#include <string>
-#include <iomanip>
-#include <algorithm>
-#include <stdlib.h>
-#include <time.h>
-#include <fstream>
-#include <sstream>
-#include <cmath>
-
-using std::cin;
-using std::endl;
-using std::cout;
-using std::string;  
-using std::vector;  
-using std::ifstream;
-using std::ofstream;
 
 int m = 0; //studentu skaicius
 int const ndskaicius = 5; // default nd darbu skaiciaus 
@@ -80,17 +62,17 @@ void print(vector < stud > & studentai, int change) {
 
   for (int i = 0; i < m; i++) { // Issue #4 Nesilygiuoja tekstas, neveikia std::setw
     if (studentai[i].vid >= 5) {
-      Aout << studentai[i].vardas << "   "; // setw neveikia?
-      Aout << studentai[i].pavarde << "   "; // setw neveikia?
+      Aout << studentai[i].vardas <<std::left<<std::setw(ndskaicius-1); // setw neveikia?
+      Aout << studentai[i].pavarde <<std::left<<std::setw(ndskaicius-1); // setw neveikia?
 
-      Aout << std::fixed << std::setprecision(2) << studentai[i].vid << "   ";
+      Aout << std::fixed << std::setprecision(2) << studentai[i].vid <<std::setw(ndskaicius-1);
 
       Aout << std::fixed << std::setprecision(2) << studentai[i].median << endl;
     } else {
-      Bout << studentai[i].vardas << "   "; // setw neveikia?
-      Bout << studentai[i].pavarde << "   "; // setw neveikia?
+      Bout << studentai[i].vardas <<std::setw(ndskaicius-1); // setw neveikia?
+      Bout << studentai[i].pavarde <<std::setw(ndskaicius-1); // setw neveikia?
 
-      Bout << std::fixed << std::setprecision(2) << studentai[i].vid << "   ";
+      Bout << std::fixed << std::setprecision(2) << studentai[i].vid <<std::setw(ndskaicius-1);
 
       Bout << std::fixed << std::setprecision(2) << studentai[i].median << endl;
     }

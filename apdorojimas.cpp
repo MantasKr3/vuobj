@@ -1,10 +1,10 @@
 #include "functions.h"
-#include <chrono>
+#include "apdorojimas.h"
 
-int main(int argc, char * argv[]) {
-  
-
+int main() {
+    auto startas = std::chrono::high_resolution_clock::now(); 
   vector <stud> studentai;
+  cout<<endl;
   int sk=10; // Pradinė reikšmė
   for(int i=0;i<5;i++){
   auto start = std::chrono::high_resolution_clock::now(); 
@@ -27,5 +27,9 @@ std::cout << "Generavimo ir skaičiavimo įvykdimas su "<<sk<<" studentų užtru
   // }
   //Išjungta galimybė įvesti,kad nesimaišytų generavimui
   //inputas(studentai);
-  return 0;
+    auto endas = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diffas = endas-startas; 
+    cout << "Programos įvykdimas užtruko: "<< diffas.count() << " s\n";
+    cout<<endl;
+    return 0;
 }

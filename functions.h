@@ -5,10 +5,10 @@
 #include <string>
 #include <iomanip>
 #include <algorithm>
-#include <stdlib.h>
 #include <time.h>
 #include <fstream>
-#include <sstream>
+#include <cmath>
+
 using std::cin;
 using std::endl;
 using std::cout;
