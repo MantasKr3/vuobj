@@ -4,8 +4,10 @@
 int main() {
   auto startas = std::chrono::high_resolution_clock::now(); 
   vector <stud> studentai;
-  vector <stud> geriukai;
-  vector <stud> nenaudeliai;
+  vector <stud> g;
+  vector <stud> n;
+
+
   cout<<endl;
   int sk=10; // Pradinė reikšmė
   int sksum=0;
@@ -16,11 +18,10 @@ int main() {
   auto end = std::chrono::high_resolution_clock::now();
 std::chrono::duration<double> diff = end-start; 
 std::cout << "Generavimo ir skaičiavimo įvykdimas su "<<sk<<" studentų užtruko: "<< diff.count() << " s\n";
-  sksum=sksum+sk;
+  sortinti(studentai,g,n);
+  print(studentai,g,n);
   sk=sk*10;
   }
-  sortinti(studentai,geriukai,nenaudeliai);
-  print(studentai,geriukai,nenaudeliai,sk);
     cout<<endl;
   //sort(studentai);
   //Išjungta galimybė įvesti duomenis iš failo,kad nesimaišytų generavimui

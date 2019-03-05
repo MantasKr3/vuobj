@@ -27,10 +27,11 @@ struct stud {
   double vid;
   double median;
 };
-
+bool compare_m (stud &a, stud &b);
+bool compare_v (stud &a, stud &b);
 void generate(int change);
-void sortinti(vector < stud > & studentai,vector < stud > & geriukai ,vector < stud > & nenaudeliai);
-void print(vector < stud > & studentai,vector < stud > & geriukai ,vector < stud > & nenaudeliai,int change);
+void sortinti(vector < stud > & studentai,vector < stud > & g, vector < stud > & n);
+void print(vector < stud > & studentai,vector < stud > & g, vector < stud > & n);
 void input(vector <stud> &studentai,int change);
 void swap(struct stud* i, struct stud* j);
 void sort(vector <stud> &studentai);
