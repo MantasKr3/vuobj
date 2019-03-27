@@ -4,14 +4,6 @@ bool compare_m (stud &a, stud &b){
   return a.vid<b.vid;
  
 };
-// bool compare_v (stud &a, stud &b){
-//   return a.vardas<b.vardas;
- 
-// };
-// bool compare_p (stud &a, stud &b){
-//   return a.pavarde<b.pavarde;
- 
-// };
 
 bool gavoSkola(const stud& s) {
 return s.vid < 5.0;
@@ -71,25 +63,11 @@ it != studentai.end(); it++)
 
     }
 
-    void skirstymas2(std::vector<stud>& studentai, std::vector<stud>& n, std::vector<stud>& g{
-   
-        sort(studentai.begin(), studentai.end(), compare_m);
-
-        int i = x;
-        int k =0;
-        while(studentai[i].vid < 5){
-            k++;
-            i--;
-        }
-        std::move(studentai.end()-k, studentai.end(),std::back_inserter(n));
-        std::move(studentai.begin(), studentai.end()-k-1, std::back_inserter(g));
-    }    
- 
-
+    
  
 void print(vector < stud > & g, vector < stud > & n) {
-  ofstream Aout("geriukai.txt",std::ios::app);
-  ofstream Bout("nenaudeliai.txt",std::ios::app);
+  ofstream Aout("geriukai.txt");
+  ofstream Bout("nenaudeliai.txt");
 for(auto &i : g){
   Aout << i.vardas <<std::left<<std::setw(ndskaicius-1)<<"  "; // setw neveikia?
       Aout << i.pavarde <<std::left<<std::setw(ndskaicius-1)<<"  "; // setw neveikia?
@@ -148,8 +126,7 @@ void input(vector < stud > & studentai, int change) {
     count2(studentai);
     m++;
   }
-  
-
+  m=0;
 }
 
 // vector<stud> rastin(std::vector<stud>& studentai) {

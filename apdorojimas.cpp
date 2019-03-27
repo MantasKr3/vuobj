@@ -7,16 +7,13 @@ int main() {
   vector <stud> studentai;
   vector <stud> g;
   vector <stud> n;
-
-  cout<<endl;
-
   int sk=10; // Pradinė reikšmė
   int sksum=0;
   string optionas;
 
   for(int i=0;i<5;i++){
-
-  cout<<"Vykdyti skiaciavima su "<<sk<< " studentu ? y/n"<<endl;
+  cout<<endl;
+  cout<<"Vykdyti skiaciavima su "<<sk<< " studentu ? y - taip, bet kuris kitas mygtukas,zodis - ne"<<endl;
   cin>>optionas;
   cout<<endl;
   if(optionas=="y"){
@@ -25,7 +22,7 @@ int main() {
 
   generate(sk);
   input(studentai,sk);
-skirstymas(studentai,n,g,sk);
+skirstymas(studentai,n,g);
   print(g,n);
 
 auto end = std::chrono::high_resolution_clock::now();
