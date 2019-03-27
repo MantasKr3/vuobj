@@ -62,6 +62,28 @@ it != studentai.end(); it++)
     g.assign(ptr,studentai.end());
 
     }
+    void skirstymas2(std::vector<stud>& studentai, std::vector<stud>& n,std::vector<stud>& g){
+        sort(studentai.begin(), studentai.end(), compare_m);
+       
+    vector<stud>::iterator ptr = studentai.begin();
+        for(vector<stud>::iterator it = studentai.begin();
+it != studentai.end(); it++)
+{
+  if((*it).vid>=5)
+  {
+    ptr=it;
+  
+    break;
+  }
+       
+        
+    }
+    n.resize(ptr-studentai.begin());
+    n.assign(studentai.begin(),ptr);
+    studentai.resize(studentai.end()-ptr);
+    studentai.assign(ptr,studentai.end());
+
+    }
 
     
  
@@ -141,116 +163,117 @@ void input(vector < stud > & studentai, int change) {
 
 
 
-// void inputas(vector < stud > & studentai) {
-//   string klaida = "Iveskite ne skaicius";
-//   string klaida2 = "Iveskite  (neneigiama)skaiciu";
-//   string klaida3 = "Iveskite  skaiciu tarp 1 ir 10";
-//   string klaida4 = "Iveskite reikiama skaiciu";
-//   int
-//   const N = 5;
-//   string salyga = "y";
-//   string v, p;
-//   cout << endl;
-//   while (salyga == "y") {
-//     cout << "Ar norite ivesti studento duomenis? Jei norite: irasykite - y, jei ne irasykite betkuria raide-zodi" << endl;
-//     cin >> salyga;
-//     cout << endl;
-//     //////////////////////////////////////////////////////////////////////////////////////////////
-//     if (salyga == "y") {
-//       studentai.push_back(stud());
-//       checkpoint: //pridetas check point jei varde ar pavardeje yra skaiciu
-//         cout << endl;
-//       cout << "Iveskite varda" << endl;
-//       cin >> v;
-//       try {
-//         if (is_number(v) == true)
-//           throw klaida;
+void inputas(vector <stud > & studentai) {
+  m=0;
+  string klaida = "Iveskite ne skaicius";
+  string klaida2 = "Iveskite  (neneigiama)skaiciu";
+  string klaida3 = "Iveskite  skaiciu tarp 1 ir 10";
+  string klaida4 = "Iveskite reikiama skaiciu";
+  int
+  const N = 5;
+  string salyga = "y";
+  string v, p;
+  cout << endl;
+  while (salyga == "y") {
+    cout << "Ar norite ivesti studento duomenis? Jei norite: irasykite - y, jei ne irasykite betkuria raide-zodi" << endl;
+    cin >> salyga;
+    cout << endl;
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    if (salyga == "y") {
+      studentai.push_back(stud());
+      checkpoint: //pridetas check point jei varde ar pavardeje yra skaiciu
+        cout << endl;
+      cout << "Iveskite varda" << endl;
+      cin >> v;
+      try {
+        if (is_number(v) == true)
+          throw klaida;
 
-//       } catch (string klaida) {
-//         cout << klaida << endl;
-//         goto checkpoint;
-//       }
-//       studentai[m].vardas = v;
-//       checkpoint2: //pridetas check point jei varde ar pavardeje yra skaiciu
-//         cout << "Iveskite pavarde" << endl;
-//       cin >> p;
-//       try {
-//         if (is_number(p) == true)
-//           throw klaida;
+      } catch (string klaida) {
+        cout << klaida << endl;
+        goto checkpoint;
+      }
+      studentai[m].vardas = v;
+      checkpoint2: //pridetas check point jei varde ar pavardeje yra skaiciu
+        cout << "Iveskite pavarde" << endl;
+      cin >> p;
+      try {
+        if (is_number(p) == true)
+          throw klaida;
 
-//       } catch (string klaida) {
-//         cout << klaida << endl;
-//         goto checkpoint2;
-//       }
-//       studentai[m].pavarde = p;
-//       string sal;
-//       cout << "Ar norite ivesti atliktu namu darbu skaiciu,ar norit naudoti default reiksme? y - ivesti" << endl;
-//       cin >> sal;
-//       cout << endl;
-//       if (sal == "y") {
-//         cout << "Iveskite studento atliktu namu darbu skaiciu" << endl;
-//         checkpoint3:
-//           string ndsk;
-//         cin >> ndsk;
-//         try {
-//           if (is_number(ndsk) == false)
-//             throw klaida2;
+      } catch (string klaida) {
+        cout << klaida << endl;
+        goto checkpoint2;
+      }
+      studentai[m].pavarde = p;
+      string sal;
+      cout << "Ar norite ivesti atliktu namu darbu skaiciu,ar norit naudoti default reiksme? y - ivesti" << endl;
+      cin >> sal;
+      cout << endl;
+      if (sal == "y") {
+        cout << "Iveskite studento atliktu namu darbu skaiciu" << endl;
+        checkpoint3:
+          string ndsk;
+        cin >> ndsk;
+        try {
+          if (is_number(ndsk) == false)
+            throw klaida2;
 
-//         } catch (string klaida2) {
-//           cout << klaida2 << endl;
+        } catch (string klaida2) {
+          cout << klaida2 << endl;
 
-//           goto checkpoint3;
-//         }
-//         int testsk = std::stoi(ndsk);
+          goto checkpoint3;
+        }
+        int testsk = std::stoi(ndsk);
 
-//         try {
-//           if (testsk <= 0)
-//             throw klaida4;
+        try {
+          if (testsk <= 0)
+            throw klaida4;
 
-//         } catch (string klaida4) {
-//           cout << klaida2 << endl;
-//           goto checkpoint3;
-//         }
-//         studentai[m].kiekis = testsk;
+        } catch (string klaida4) {
+          cout << klaida2 << endl;
+          goto checkpoint3;
+        }
+        studentai[m].kiekis = testsk;
 
-//       } else {
-//         studentai[m].kiekis = ndskaicius;
-//       }
-//       cout << endl;
-//       int pasirinkimas = 0;
-//       checkpoint4: //pridetas check point jei varde ar pavardeje yra skaiciu
-//         cout << endl;
-//       cout << "Įveskite jei norite vid - 1, jei medianos - 2" << endl;
-//       cin >> pasirinkimas;
+      } else {
+        studentai[m].kiekis = ndskaicius;
+      }
+      cout << endl;
+      int pasirinkimas = 0;
+      checkpoint4: //pridetas check point jei varde ar pavardeje yra skaiciu
+        cout << endl;
+      cout << "Įveskite jei norite vid - 1, jei medianos - 2" << endl;
+      cin >> pasirinkimas;
 
-//       //  try {
-//       //   if ((pasirinkimas!=1)||(pasirinkimas!=2))
-//       //     throw klaida4;
+      //  try {
+      //   if ((pasirinkimas!=1)||(pasirinkimas!=2))
+      //     throw klaida4;
 
-//       // } catch (string klaida4) {
-//       //   cout << klaida4 << endl;
-//       //   goto checkpoint4;
-//       // }
-//       studentai[m].selection = pasirinkimas;
-//       //////////////////////////////////////////////////////////////////////////////////////////////
-//       int sk;
-//       for (int i = 0; i < studentai[m].kiekis; i++) {
-//         srand(time(NULL));
-//         sk = std::round(1 + (double) rand() / RAND_MAX * (10 - 1));
-//         studentai[m].nd.push_back(sk);
-//       }
-//       //////////////////////////////////////////////////////////////////////////////////////////////
-//       int sk2;
-//       srand(time(NULL));
-//       sk2 = std::round(1 + (double) rand() / RAND_MAX * (10 - 1));
-//       studentai[m].egz = sk2;
-//       count(studentai);
-//       count2(studentai);
-//       m++;
-//     }
-//     //////////////////////////////////////////////////////////////////////////////////////////////
-//     else {
-//       break;
-//     }
-//   }
-// }
+      // } catch (string klaida4) {
+      //   cout << klaida4 << endl;
+      //   goto checkpoint4;
+      // }
+      studentai[m].selection = pasirinkimas;
+      //////////////////////////////////////////////////////////////////////////////////////////////
+      int sk;
+      for (int i = 0; i < studentai[m].kiekis; i++) {
+        srand(time(NULL));
+        sk = std::round(1 + (double) rand() / RAND_MAX * (10 - 1));
+        studentai[m].nd.push_back(sk);
+      }
+      //////////////////////////////////////////////////////////////////////////////////////////////
+      int sk2;
+      srand(time(NULL));
+      sk2 = std::round(1 + (double) rand() / RAND_MAX * (10 - 1));
+      studentai[m].egz = sk2;
+      count(studentai);
+      count2(studentai);
+      m++;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    else {
+      break;
+    }
+  }
+}

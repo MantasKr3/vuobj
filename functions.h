@@ -37,6 +37,7 @@ bool compare_m (stud &a, stud &b);
 void generate(int change);
 void print(vector < stud > & g, vector < stud > & n);
 void input(vector <stud> &studentai,int change);
+void inputas(vector <stud> &studentai);
 bool is_number(const std::string  &s);
 void count(vector <stud> &studentai);
 void count2(vector <stud> &studentai);
