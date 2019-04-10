@@ -22,6 +22,10 @@ Generavimo ir skaičiavimo įvykdimas su 100000 studentų užtruko: 0.831313 s
 - `./open`
 
 ## *Detalesni aprašymai bus pridėti prie kiekvieno realeaso*
+
+## [Version 0.5](https://github.com/MantasKr3/vuobj/releases/tag/V.0.5)
+- Benchmarked diffrences between ```std:list``` ```std:deque``` ```std::vector```
+
 ## [Version 0.4.3](https://github.com/MantasKr3/vuobj/releases/tag/V.0.4.3)
 - Fixed sorting for final results
 
