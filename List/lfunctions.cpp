@@ -68,26 +68,26 @@ void skirstymas(std::list < stud > & studentai, std::list < stud > & n, std::lis
 
 
 }
-// void skirstymas2(std::list < stud > & studentai, std::list < stud > & n, std::list < stud > & g) {
-//    sort(studentai.begin(), studentai.end(), compare_m);
-//    vector<stud> studn(studentai.begin(),studentai.end());
+void skirstymas2(std::list < stud > & studentai, std::list < stud > & n, std::list < stud > & g) {
+   vector<stud> studn(studentai.begin(),studentai.end());
+   sort(studn.begin(), studn.end(), compare_m);
 
 
-//    vector < stud > ::iterator ptr = studn.begin();
-//    for (vector < stud > ::iterator it = studn.begin(); it != studn.end(); it++) {
-//       if (( * it).vid >= 5) {
-//          ptr = it;
+   vector < stud > ::iterator ptr = studn.begin();
+   for (vector < stud > ::iterator it = studn.begin(); it != studn.end(); it++) {
+      if (( * it).vid >= 5) {
+         ptr = it;
 
-//          break;
-//       }
+         break;
+      }
 
-//    }
-//    n.resize(ptr - studn.begin());
-//    n.assign(studn.begin(), ptr);
-//    studentai.resize(studn.end() - ptr);
-//    studentai.assign(ptr, studn.end());
+   }
+   n.resize(ptr - studn.begin());
+   n.assign(studn.begin(), ptr);
+   studentai.resize(studn.end() - ptr);
+   studentai.assign(ptr, studn.end());
 
-// }
+}
 
 void print(list < stud > & g, list < stud > & n) {
    ofstream Aout("geriukai.txt");

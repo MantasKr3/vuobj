@@ -23,12 +23,12 @@ int main() {
 
   generate(sk);
   input(studentai,sk);
-skirstymas(studentai,n,g);
-  print(g,n);
+skirstymas2(studentai,n,g);
+  print(studentai,n);
 
 auto end = std::chrono::high_resolution_clock::now();
 std::chrono::duration<double> diff = end-start; 
-std::cout << "[STRATEGIJA 1] Generavimo ir skaičiavimo įvykdimas su "<<sk<<" studentų užtruko: "<<endl;
+std::cout << "[STRATEGIJA 2] LIST Generavimo ir skaičiavimo įvykdimas su "<<sk<<" studentų užtruko: "<<endl;
 cout<< diff.count() << " s\n";
 
   sk=sk*10;
