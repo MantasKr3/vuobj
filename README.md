@@ -3,25 +3,17 @@
 
 **Dabartinės  versijos  panaudojimas. Programa seka ir apskaičiuoja moksleivio sugeneruotų pažymių vidurkį ir medianą:**<br/>
 - Pradėjus programa sukūriami 5 failai su šabloniniais vardais: `Vardas1 Pavardė1, Vardas2 Pavardė2 ir t.t.` `kursiokai10.txt, kursiokai100.txt, kursiokai1000.txt, kursiokai10000.txt, kursiokai100000.txt`   <br/>
-- Programa suskaičiuoja vidurkį ir medianą, ir išveda rezultatus į surūšiuotūs pagal galutinį (vidurkį) failus ir pažymius(medianą), pavadintus `neneaudeliai.txt` , kur išvedami visi su galutiniu pažymiu *<5* , likę išvedami į failą `geriukai.txt`
-- Programa į ekraną išveda atlikimo laikus su skirtingais duomenų failais
-```bash
-Generavimo ir skaičiavimo įvykdimas su 10 studentų užtruko: 0.000614084 s
-Generavimo ir skaičiavimo įvykdimas su 100 studentų užtruko: 0.00209874 s
-Generavimo ir skaičiavimo įvykdimas su 1000 studentų užtruko: 0.0114821 s
-Generavimo ir skaičiavimo įvykdimas su 10000 studentų užtruko: 0.0859467 s
-Generavimo ir skaičiavimo įvykdimas su 100000 studentų užtruko: 0.831313 s
-```
-
+- Programa suskaičiuoja vidurkį ir medianą, ir išveda rezultatus į surūšiuotūs pagal galutinį (vidurkį)(vardą)(pavardę) failus ir pažymius(medianą), pavadintus `neneaudeliai.txt` , kur išvedami visi su galutiniu pažymiu *<5* , likę išvedami į failą `geriukai.txt`
 
 ## Programos naudojimas naudojant `g++` kompiliatorių
-
 - `git clone https://github.com/MantasKr3/vuobj`
-- `cd vuobj`
-- `g++  functions.cpp apdorojimas.cpp  -o open`
+- `cd vuobj` or `cd vuobj/Deque` or `cd vuobj/List`  
+- `g++  functions.cpp apdorojimas.cpp  -o open` or - `g++  dfunctions.cpp dapdorojimas.cpp  -o open`  or - `g++  lfunctions.cpp lapdorojimas.cpp  -o open`
 - `./open`
 
-## *Detalesni aprašymai bus pridėti prie kiekvieno realeaso*
+## [Version 1.0](https://github.com/MantasKr3/vuobj/releases/tag/V.1.0)
+- Added final version
+- Added benchmark results in final release 
 
 ## [Version 0.5](https://github.com/MantasKr3/vuobj/releases/tag/V.0.5)
 - Benchmarked diffrences between ```std:list``` ```std:deque``` ```std::vector```
