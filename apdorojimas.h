@@ -1,5 +1,5 @@
-#ifndef apdorojimas_H
-#define apdorojimas_H
+#ifndef GUARD_apdorojimas_H
+#define GUARD_apdorojimas_H
 
 #include <chrono>
 

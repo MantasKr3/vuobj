@@ -2,14 +2,15 @@
 #include "apdorojimas.h"
 
 int main() {
-  auto startas = std::chrono::high_resolution_clock::now(); 
 
+  auto startas = std::chrono::high_resolution_clock::now(); 
   vector <stud> studentai;
   vector <stud> g;
   vector <stud> n;
   int sk=10; // Pradinė reikšmė
   int sksum=0;
   string optionas;
+
 
   for(int i=0;i<5;i++){
   cout<<endl;
@@ -27,7 +28,8 @@ skirstymas(studentai,n,g);
 
 auto end = std::chrono::high_resolution_clock::now();
 std::chrono::duration<double> diff = end-start; 
-std::cout << "[STRATEGIJA 1] Generavimo ir skaičiavimo įvykdimas su "<<sk<<" studentų užtruko: "<< diff.count() << " s\n";
+std::cout << "[STRATEGIJA 1] Generavimo ir skaičiavimo įvykdimas su "<<sk<<" studentų užtruko: "<<endl;
+cout<< diff.count() << " s\n";
 
   sk=sk*10;
 
@@ -41,7 +43,6 @@ std::cout << "[STRATEGIJA 1] Generavimo ir skaičiavimo įvykdimas su "<<sk<<" s
   }
  
   }
-   studentai.clear();
 
     cout<<endl;
 
@@ -51,6 +52,7 @@ std::cout << "[STRATEGIJA 1] Generavimo ir skaičiavimo įvykdimas su "<<sk<<" s
   if(salyga=="y"){
   inputas(studentai);
   }
+
     auto endas = std::chrono::high_resolution_clock::now();
     cout<<endl;
     return 0;
