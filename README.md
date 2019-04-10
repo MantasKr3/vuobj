@@ -6,9 +6,16 @@
 - Programa suskaičiuoja vidurkį ir medianą, ir išveda rezultatus į surūšiuotūs pagal galutinį (vidurkį)(vardą)(pavardę) failus ir pažymius(medianą), pavadintus `neneaudeliai.txt` , kur išvedami visi su galutiniu pažymiu *<5* , likę išvedami į failą `geriukai.txt`
 
 ## Programos naudojimas naudojant `g++` kompiliatorių
+
 - `git clone https://github.com/MantasKr3/vuobj`
 - `cd vuobj` or `cd vuobj/Deque` or `cd vuobj/List`  
 - `g++  functions.cpp apdorojimas.cpp  -o open` or - `g++  dfunctions.cpp dapdorojimas.cpp  -o open`  or - `g++  lfunctions.cpp lapdorojimas.cpp  -o open`
+- `./open`
+
+or
+- `git clone https://github.com/MantasKr3/vuobj`
+- `cd vuobj`
+- `make`
 - `./open`
 
 ## [Version 1.0](https://github.com/MantasKr3/vuobj/releases/tag/V.1.0)
